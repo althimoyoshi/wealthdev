@@ -13,4 +13,5 @@ class NetWorthLiability extends Model
         "liability_id",
         "transaction_date",
         "nominal",
+    ];
 }
