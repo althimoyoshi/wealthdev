@@ -7,6 +7,7 @@ use App\Enums\MonthEnum;
 use Arr;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Expense extends Model
 {
@@ -31,4 +32,13 @@ class Expense extends Model
             'month'=> MonthEnum::class,
         ];
     }
+
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class);
+    }
+
+    public function typeDetail(): BelongsTo{
+        return $this->belongsTo(Budget::class, 'type_detail_id', 'id');
+    }
+
 }

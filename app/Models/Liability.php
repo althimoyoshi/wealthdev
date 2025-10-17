@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\LiabilityType;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Liability extends Model
 {
@@ -22,5 +23,9 @@ class Liability extends Model
         return [
             "type" => LiabilityType::class,
         ];
+    }
+
+    public function netWorth(): HasMany{
+        return $this->hasMany( NetWorthLiability::class);
     }
 }
