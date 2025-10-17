@@ -88,6 +88,6 @@
     }
 
     body {
-        @apply bg-background text-foreground font-[Geologica];
+        @apply bg-background font-[Geologica] text-foreground;
     }
 }
