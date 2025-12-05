@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('net_worth_liabilities', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('liability_id')->constrained()->cascadeOnDelete();
+            $table->date('transaction_date'); 
+            $table->unsignedInteger('nominal');
             $table->timestamps();
         });
     }
