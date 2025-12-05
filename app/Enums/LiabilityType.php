@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Enums;
 
 enum LiabilityType: string
@@ -9,9 +10,10 @@ enum LiabilityType: string
     case MIDTERMDEBT = 'Hutang Jangka Menengah';
     case LONGTERMDEBT = 'Hutang Jangka Panjang';
 
-    public static function options(): array
+    public static function options(array $exclude = []): array
     {
         return collect(self::cases())
+            ->filter(fn ($item) => ! in_array($item->name, $exclude))
             ->map(fn ($item) => [
                 'value' => $item->name,
                 'label' => $item->value,
