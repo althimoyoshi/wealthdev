@@ -38,7 +38,7 @@ class Asset extends Model
         return $this->belongsTo(NetWorth::class);
     }
 
-    public function netWorthAsset(): HasMany{
+    public function netWorthAssets(): HasMany{
         return $this->hasMany(NetWorthAsset::class);
     }
 }
